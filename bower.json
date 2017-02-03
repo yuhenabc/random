@@ -1,0 +1,22 @@
+{
+  "name": "random-string-generator",
+  "description": "Javascript random string generator, the length and scope can be custom defined.",
+  "main": "dist/random.js",
+  "authors": [
+    "yuhenabc"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "random",
+    "length",
+    "scope"
+  ],
+  "homepage": "https://github.com/yuhenabc/random",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
