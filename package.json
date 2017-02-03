@@ -1,0 +1,25 @@
+{
+  "name": "random",
+  "version": "0.0.1",
+  "description": "Javascript random string generator, the length and scope can be custom defined.",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "keywords": [
+    "random",
+    "length",
+    "scope"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuhenabc/random.git"
+  },
+  "author": "yuhenabc",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "rollup": "^0.41.4",
+    "rollup-plugin-babel": "^2.7.1"
+  }
+}

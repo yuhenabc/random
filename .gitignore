@@ -1,3 +1,7 @@
+#IDEs
+.idea
+.DS_Store
+
 # Logs
 logs
 *.log
