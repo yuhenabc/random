@@ -7,13 +7,13 @@ Javascript random string generator, the length and scope can be custom defined.
 By bower:
 
 ```
-bower install @yuhenabc/random
+bower install random-string-generator
 ```
 
 By npm:
 
 ```
-npm install @yuhenabc/random
+npm install random-string-generator
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ npm install @yuhenabc/random
 ### Use with HTML &lt;script&gt; tag:
 
 ```
-<script src="/node_modules/random/dist/random.js"></script>
+<script src="/node_modules/random-string-generator/dist/random.js"></script>
 ```
 
 other js field you can write:
@@ -35,7 +35,7 @@ other js field you can write:
 ### Use with require.js:
 
 ```
-define(["./node_modules/random/dist/random.js"], function(random) {
+define(["./node_modules/random-string-generator/dist/random.js"], function(random) {
     console.log(random(12, 'ABCD'));   // 'BBCCBACDAADD' or others
   }
 );
@@ -44,9 +44,9 @@ define(["./node_modules/random/dist/random.js"], function(random) {
 ### Use with npm:
 
 ```
-var ran = require('random');
+var random = require('random-string-generator');
 
-console.log(ran(12, 'ABCD'));   // 'BBCCBACDAADD' or others
+console.log(random(12, 'ABCD'));   // 'BBCCBACDAADD' or others
 ```
 
 ## Contributing
