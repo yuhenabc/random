@@ -19,7 +19,7 @@ npm install random-string-generator
 ## Documention
 
 ```
-random([length], [scope]);
+random([length][, scope]);
 ```
 
 #### **length**:

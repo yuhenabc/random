@@ -17,6 +17,8 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "index.js",
+    "rollup.config.js",
+    "package-lock.json"
   ]
 }
