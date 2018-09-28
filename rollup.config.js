@@ -1,13 +1,22 @@
+import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 
 export default {
-  entry: 'src/random.js',
-  targets: [
-    {dest: 'index.js', format: 'cjs'},
-    {dest: 'dist/random.js', format: 'umd'}
+  input: 'src/random.js',
+  output: [
+    {
+      file: 'index.js',
+      format: 'cjs',
+      name: 'random'
+    },
+    {
+      file: 'dist/random.js',
+      format: 'umd',
+      name: 'random'
+    }
   ],
-  moduleName: 'random',
   plugins: [
+    resolve(),
     babel({
       exclude: 'node_modules/**'
     })
