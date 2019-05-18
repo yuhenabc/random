@@ -22,8 +22,12 @@
     "@babel/core": "^7.1.0",
     "@babel/plugin-external-helpers": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
+    "jest": "^24.8.0",
     "rollup": "^0.66.2",
     "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-node-resolve": "^3.4.0"
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-typescript": "^1.0.1",
+    "tslib": "^1.9.3",
+    "typescript": "^3.4.5"
   }
 }

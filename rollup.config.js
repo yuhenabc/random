@@ -1,8 +1,9 @@
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
+import typescript from 'rollup-plugin-typescript';
 
 export default {
-  input: 'src/random.js',
+  input: 'src/random.ts',
   output: [
     {
       file: 'index.js',
@@ -17,6 +18,7 @@ export default {
   ],
   plugins: [
     resolve(),
+    typescript(),
     babel({
       exclude: 'node_modules/**'
     })

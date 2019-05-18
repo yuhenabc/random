@@ -1,18 +1,22 @@
 'use strict';
 
-function random () {
-  var length = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 12;
-  var scope = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-  if (typeof length !== 'number') throw new Error('length must be a number');
-  if (typeof scope !== 'string') throw new Error('scope must be a string');
-  var str = '';
-  var l = scope.length;
-
-  for (var i = 0; i < length; i++) {
-    str += scope.charAt(Math.floor(Math.random() * l));
-  }
-
-  return str;
-}
+var lower = 'abcdefghijklmnopqrstuvwxyz', upper = lower.toUpperCase(), numeric = '0123456789', types = { lower: lower, upper: upper, numeric: numeric, alphanumeric: "" + lower + upper + numeric };
+var random = (function (length, scope, type) {
+    if (length === void 0) { length = 12; }
+    if (scope === void 0) { scope = ""; }
+    if (type === void 0) { type = 'alphanumeric'; }
+    if (typeof length !== 'number')
+        throw new Error('length must be a number');
+    if (typeof scope !== 'string')
+        throw new Error('scope must be a string');
+    var tk = Object.keys(types);
+    var t = typeof type === 'string' && ~tk.indexOf(type) ? types[type] : types['alphanumeric'];
+    var str = '';
+    var l = t.length;
+    for (var i = 0; i < length; i++) {
+        str += t.charAt(Math.floor(Math.random() * l));
+    }
+    return str;
+});
 
 module.exports = random;
