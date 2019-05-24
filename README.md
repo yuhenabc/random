@@ -143,7 +143,7 @@ for (var i in result) {
 }
 
 function output(char, num) {
-    return char + ': ' + stat[num] + '%';
+    return char + ': ' + stat[num]/1000 + '%';
 }
 
 console.log(output('A', 0));
