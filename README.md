@@ -24,7 +24,7 @@ random([length] [, type]);
 
 #### **length**:
 
-Random string's length, default is 12.
+Random string's length, default is `12`.
 
 ```javascript
 random(); // 'qCCm2Yoyycjm' or others
@@ -33,11 +33,11 @@ random(12); // 'qCCm2Yoyycjm' or others
 
 #### **type**:
 
-You can generate different variant of strings based on the choices available, default is `alphanumeric`:
+You can generate different variant of strings based on the choices available, default is `'alphanumeric'`:
 
 ##### 1. alphanumeric
 
-To genereate alphanumeric characters. *example*:
+To genereate alphanumeric characters. *example*
 
 ```javascript
 random('alphanumeric'); // 'qCCm2Yoyycjm' or others
@@ -143,7 +143,7 @@ for (var i in result) {
 }
 
 function output(char, num) {
-    return char + ': ' + stat[num]/1000 + '%';
+    return char + ': ' + stat[num] / 1000 + '%';
 }
 
 console.log(output('A', 0));
