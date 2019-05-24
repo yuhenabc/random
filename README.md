@@ -19,55 +19,76 @@ npm install random-string-generator
 ## Documention
 
 ```
-random([length [, type]]); // This generates random 12 alphanumeric characters.
+random([length] [, type]);
 ```
 
 #### **length**:
 
-random string's length, default is 12.
-
-You can generate different variant of strings based on the choices available:
-
-1. **alphanumeric** To genereate alphanumeric characters. *example*:
+Random string's length, default is 12.
 
 ```javascript
-random(undefined, 'alphanumeric'); // qCCm2Yoyycjm
-random(); // qCCm2Yoyycjm
-```
-2. **numeric** To generate numeric characters. *example*
-
-```javascript
-random(undefined, 'numeric'); // 222295328374
+random(); // 'qCCm2Yoyycjm' or others
+random(12); // 'qCCm2Yoyycjm' or others
 ```
 
-3. **upper** To generate upper case alphabetic characters. *example*
+#### **type**:
+
+You can generate different variant of strings based on the choices available, default is `alphanumeric`:
+
+##### 1. alphanumeric
+
+To genereate alphanumeric characters. *example*:
 
 ```javascript
-random(undefined, 'upper'); // ELYGLGBVKLUE
+random('alphanumeric'); // 'qCCm2Yoyycjm' or others
 ```
 
-4. **lower** To generate lower case alphabetic characters. *example*
+##### 2. numeric
+
+To generate numeric characters. *example*
 
 ```javascript
-random(undefined, 'lower'); // pivohkmuzxrv
+random('numeric'); // '222295328374' or others
 ```
 
-5. **uppernummeric** To generate upper case numeric characters. *example*
+##### 3. upper
+
+To generate upper case alphabetic characters. *example*
 
 ```javascript
-random(undefined, 'uppernumeric'); // 8DOUIL7RW8MW
+random('upper'); // 'ELYGLGBVKLUE' or others
 ```
 
-6. **lowernummeric** To generate upper case numeric characters. *example*
+##### 4. lower
+
+To generate lower case alphabetic characters. *example*
 
 ```javascript
-random(undefined, 'lowernumeric'); // k0oooqv77wrq
+random('lower'); // 'pivohkmuzxrv' or others
 ```
 
-7. **scoped:.+** To generate upper case numeric characters. *example*
+##### 5. uppernummeric
+
+To generate upper case numeric characters. *example*
 
 ```javascript
-random(undefined, 'scoped:ABCDEF'); // ACBBCAFCEDAA
+random('uppernumeric'); // '8DOUIL7RW8MW' or others
+```
+
+##### 6. lowernummeric
+
+To generate upper case numeric characters. *example*
+
+```javascript
+random('lowernumeric'); // 'k0oooqv77wrq' or others
+```
+
+##### 7. scoped:.+
+
+To generate upper case numeric characters. *example*
+
+```javascript
+random('scoped:ABCDEF'); // 'ACBBCAFCEDAA' or others
 ```
 
 ## Usage
@@ -82,7 +103,7 @@ other js field you can write:
 
 ```html
 <script>
-  console.log(random(12));  // 'abcABC123' or others
+  console.log(random());  // 'qCCm2Yoyycjm' or others
 </script>
 ```
 
@@ -90,7 +111,7 @@ other js field you can write:
 
 ```javascript
 define(["./bower_components/random-string-generator/dist/random.js"], function(random) {
-    console.log(random(12));  // 'abcABC123' or others
+    console.log(random());  // 'qCCm2Yoyycjm' or others
   }
 );
 ```
@@ -100,7 +121,7 @@ define(["./bower_components/random-string-generator/dist/random.js"], function(r
 ```javascript
 var random = require('random-string-generator');
 
-console.log(random(12));  // 'abcABC123' or others
+console.log(random());  // 'qCCm2Yoyycjm' or others
 ```
 
 ## Example
@@ -121,24 +142,24 @@ for (var i in result) {
     }
 }
 
-function put(char, num) {
-    return char + ': ' + stat[num] / 1000;
+function output(char, num) {
+    return char + ': ' + stat[num] + '%';
 }
 
-console.log(put('A', 0));
-console.log(put('B', 1));
-console.log(put('C', 2));
-console.log(put('D', 3));
-console.log(put('E', 4));
+console.log(output('A', 0));
+console.log(output('B', 1));
+console.log(output('C', 2));
+console.log(output('D', 3));
+console.log(output('E', 4));
 
 /*
  * The results may be:
  *
- * A: 20.044
- * B: 19.969
- * C: 19.93
- * D: 19.991
- * E: 20.066
+ * A: 20.044%
+ * B: 19.969%
+ * C: 19.93%
+ * D: 19.991%
+ * E: 20.066%
  *
  * or some others.
 */

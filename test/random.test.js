@@ -1,54 +1,63 @@
 var random = require('../dist/random');
 
 describe('Random string generation tests', () => {
-  it('should throw an error when \x1b[1mlength\x1b0m is not a string', done => {
-    expect(() => random('string')).toThrow();
+  it('should throw an error when length is not a string', done => {
+    expect(() => random({}, 'alphanumeric')).toThrow();
     done()
   });
 
-  it('should return the default length of \x1b[1m12\x1b[0m characters when no length argument is provided', done => {
+  it('should return the default length of 12 characters when no length argument is provided', done => {
     expect(random()).toHaveLength(12);
     done();
   });
 
-  it('should set type parameter to \x1b[1malphanumberic\x1b[0m when wrong type added', done => {
-    expect(random(12, 'string')).toMatch(/[A-Za-z0-9]+/);
+  it('should return the exact length when length argument is provided', done => {
+    expect(random(20)).toHaveLength(20);
     done();
   });
 
-  it('should return \x1b[1malphanumeric\x1b[0m characters when explicitly stated or no type is given', done => {
-    expect(random(12, 'alphanumeric')).toMatch(/^[A-Za-z0-9]{12}$/);
-    expect(random(12, '')).toMatch(/^[A-Za-z0-9]{12}$/);
+  it('should throw an error when type is not a string', done => {
+    expect(() => random(12, {})).toThrow();
+    done()
+  });
+
+  it('should throw an error when type is not in given strings', done => {
+    expect(() => random('string')).toThrow();
+    done()
+  });
+
+  it('should return alphanumeric characters when explicitly stated or no type is given', done => {
+    expect(random('alphanumeric')).toMatch(/^[A-Za-z0-9]{12}$/);
     done();
   });
 
-  it('should return \x1b[1mnumeric\x1b[0m characters', done => {
-    expect(random(12, 'numeric')).toMatch(/^\d{12}$/);
+  it('should return numeric characters', done => {
+    expect(random('numeric')).toMatch(/^\d{12}$/);
     done()
   });
 
-  it('should return \x1b[1mupper\x1b[0m case characters', done => {
-    expect(random(12, 'upper')).toMatch(/^(?!.*\d)(?!.*[a-z])[A-Z]{12}$/);
+  it('should return upper case characters', done => {
+    expect(random('upper')).toMatch(/^(?!.*\d)(?!.*[a-z])[A-Z]{12}$/);
     done()
   });
 
-  it('should return \x1b[1mlower\x1b[0m case characters', done => {
-    expect(random(12, 'lower')).toMatch(/^(?!.*\d)(?!.*[A-Z])[a-z]{12}$/);
+  it('should return lower case characters', done => {
+    expect(random('lower')).toMatch(/^(?!.*\d)(?!.*[A-Z])[a-z]{12}$/);
     done()
   });
 
-  it('should return \x1b[1mlower-numeric\x1b[0m characters', done => {
-    expect(random(12, 'lowernumeric')).toMatch(/^(?!.*[A-Z])[a-z0-9]{12}$/);
+  it('should return lower-numeric characters', done => {
+    expect(random('lowernumeric')).toMatch(/^(?!.*[A-Z])[a-z0-9]{12}$/);
     done()
   });
 
-  it('should return \x1b[1mupper-numeric\x1b[0m characters', done => {
-    expect(random(12, 'uppernumeric')).toMatch(/^(?!.*[a-z])[A-Z0-9]{12}$/);
+  it('should return upper-numeric characters', done => {
+    expect(random('uppernumeric')).toMatch(/^(?!.*[a-z])[A-Z0-9]{12}$/);
     done()
   });
 
-  it('should return \x1b[1mscoped\x1b[0m when scoped type is given', done => {
-    expect(random(undefined, 'scoped:ABCDEF')).toMatch(/^(?!.*[G-Z0-9])[A-F]{12}/);
+  it('should return scoped when scoped type is given', done => {
+    expect(random('scoped:ABCDEF')).toMatch(/^(?!.*[G-Z0-9])[A-F]{12}/);
     done();
   });
 });

@@ -7,19 +7,38 @@ var lower = 'abcdefghijklmnopqrstuvwxyz', upper = lower.toUpperCase(), numeric =
     lowernumeric: "" + lower + numeric,
     uppernumeric: "" + upper + numeric,
     alphanumeric: "" + lower + upper + numeric
-};
-var random = (function (length, type) {
-    if (length === void 0) { length = 12; }
-    if (type === void 0) { type = 'alphanumeric'; }
+}, tk = Object.keys(types);
+function random (length, type) {
+    switch (arguments.length) {
+        case 0:
+            length = 12;
+            type = 'alphanumeric';
+            break;
+        case 1:
+            if (typeof arguments[0] === 'string') {
+                length = 12;
+                type = arguments[0];
+            }
+            else {
+                type = 'alphanumeric';
+            }
+            break;
+        case 2:
+        default:
+            break;
+    }
     if (typeof length !== 'number')
-        throw new Error('length must be a number');
-    if (typeof type !== 'string')
-        throw new Error('type must be a string');
+        throw new Error('length must be a number, but you give a ' + typeof length + '.');
+    if (typeof type !== 'string') {
+        throw new Error('type must be a string, but you give a ' + typeof type + '.');
+    }
+    else if (!~tk.indexOf(type) && !/^scoped:.+$/.test(type)) {
+        throw new Error('type must be one of ' + tk.join(', ') + ', scoped:*, but you not.');
+    }
     var splitType = type.split(':').map(function (v) { return v.trim(); });
     var t = '';
-    var tk = Object.keys(types);
     if (splitType[0] !== 'scoped') {
-        t = typeof type === 'string' && ~tk.indexOf(type) ? types[type] : types['alphanumeric'];
+        t = types[type];
     }
     else if (typeof splitType[1] === 'string' && splitType[1].length) {
         t = splitType[1];
@@ -30,6 +49,6 @@ var random = (function (length, type) {
         str += t.charAt(Math.floor(Math.random() * l));
     }
     return str;
-});
+}
 
 module.exports = random;
