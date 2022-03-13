@@ -4,9 +4,9 @@ var lower = 'abcdefghijklmnopqrstuvwxyz', upper = lower.toUpperCase(), numeric =
     lower: lower,
     upper: upper,
     numeric: numeric,
-    lowernumeric: "" + lower + numeric,
-    uppernumeric: "" + upper + numeric,
-    alphanumeric: "" + lower + upper + numeric
+    lowernumeric: "".concat(lower).concat(numeric),
+    uppernumeric: "".concat(upper).concat(numeric),
+    alphanumeric: "".concat(lower).concat(upper).concat(numeric)
 }, tk = Object.keys(types);
 function random (length, type) {
     switch (arguments.length) {
@@ -22,9 +22,6 @@ function random (length, type) {
             else {
                 type = 'alphanumeric';
             }
-            break;
-        case 2:
-        default:
             break;
     }
     if (typeof length !== 'number')

@@ -1,6 +1,4 @@
-import resolve from 'rollup-plugin-node-resolve';
-import babel from 'rollup-plugin-babel';
-import typescript from 'rollup-plugin-typescript';
+import typescript from '@rollup/plugin-typescript';
 
 export default {
   input: 'src/random.ts',
@@ -8,19 +6,13 @@ export default {
     {
       file: 'index.js',
       format: 'cjs',
-      name: 'random'
+      name: 'random',
     },
     {
       file: 'dist/random.js',
       format: 'umd',
-      name: 'random'
-    }
+      name: 'random',
+    },
   ],
-  plugins: [
-    resolve(),
-    typescript(),
-    babel({
-      exclude: 'node_modules/**'
-    })
-  ]
+  plugins: [typescript()],
 };
