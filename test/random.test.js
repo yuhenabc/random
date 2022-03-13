@@ -1,4 +1,4 @@
-var random = require('../dist/random');
+const random = require('../index');
 
 describe('Random string generation tests', () => {
   it('should throw an error when length is not a string', done => {

@@ -19,6 +19,7 @@
   "author": "yuhenabc",
   "license": "MIT",
   "devDependencies": {
+    "@babel/preset-env": "^7.16.11",
     "@rollup/plugin-typescript": "^8.3.1",
     "jest": "^27.5.1",
     "rollup": "^2.70.0",
