@@ -4,15 +4,19 @@ export default {
   input: 'src/random.ts',
   output: [
     {
-      file: 'index.js',
+      file: 'dist/random.cjs',
       format: 'cjs',
+      exports: 'default',
+    },
+    {
+      file: 'dist/random.umd.js',
+      format: 'umd',
       name: 'random',
       exports: 'default',
     },
     {
-      file: 'dist/random.js',
-      format: 'umd',
-      name: 'random',
+      file: 'dist/random.mjs',
+      format: 'es',
       exports: 'default',
     },
   ],

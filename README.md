@@ -16,6 +16,12 @@ By npm:
 npm install random-string-generator
 ```
 
+By yarn:
+
+```
+yarn add random-string-generator
+```
+
 ## Documention
 
 ```

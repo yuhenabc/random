@@ -2,7 +2,11 @@
   "name": "random-string-generator",
   "version": "1.0.0",
   "description": "Javascript random string generator, the length and scope can be custom defined.",
-  "main": "index.js",
+  "main": "dist/random.cjs",
+  "exports": {
+    "import": "./dist/random.mjs",
+    "require": "./dist/random.cjs"
+  },
   "scripts": {
     "test": "jest",
     "build": "rollup -c"
