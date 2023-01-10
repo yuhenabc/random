@@ -1,4 +1,4 @@
-const random = require('../index');
+const random = require('../dist/random.cjs');
 
 describe('Random string generation tests', () => {
   it('should throw an error when length is not a string', done => {
