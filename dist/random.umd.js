@@ -4,14 +4,25 @@
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.random = factory());
 })(this, (function () { 'use strict';
 
-    var lower = 'abcdefghijklmnopqrstuvwxyz', upper = lower.toUpperCase(), numeric = '0123456789', types = {
+    var lower = 'abcdefghijklmnopqrstuvwxyz';
+    var upper = lower.toUpperCase();
+    var numeric = '0123456789';
+    var types = {
         lower: lower,
         upper: upper,
         numeric: numeric,
         lowernumeric: "".concat(lower).concat(numeric),
         uppernumeric: "".concat(upper).concat(numeric),
         alphanumeric: "".concat(lower).concat(upper).concat(numeric)
-    }, tk = Object.keys(types);
+    };
+    var typeKeys = Object.keys(types);
+    /**
+     * Generate random string
+     *
+     * @param {number} length The length of the random string
+     * @param {string} type The type of the random string
+     * @returns {string}
+    */
     function random (length, type) {
         switch (arguments.length) {
             case 0:
@@ -33,16 +44,16 @@
         if (typeof type !== 'string') {
             throw new Error('type must be a string, but you give a ' + typeof type + '.');
         }
-        else if (!~tk.indexOf(type) && !/^scoped:.+$/.test(type)) {
-            throw new Error('type must be one of ' + tk.join(', ') + ', scoped:*, but you not.');
+        else if (!~typeKeys.indexOf(type) && !/^scoped:.+$/.test(type)) {
+            throw new Error('type must be one of ' + typeKeys.join(', ') + ', scoped:*, but you not.');
         }
-        var splitType = type.split(':').map(function (v) { return v.trim(); });
+        var splitedTypes = type.split(':').map(function (v) { return v.trim(); });
         var t = '';
-        if (splitType[0] !== 'scoped') {
+        if (splitedTypes[0] !== 'scoped') {
             t = types[type];
         }
-        else if (typeof splitType[1] === 'string' && splitType[1].length) {
-            t = splitType[1];
+        else if (typeof splitedTypes[1] === 'string' && splitedTypes[1].length) {
+            t = splitedTypes[1];
         }
         var str = '';
         var l = t.length;
