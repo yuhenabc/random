@@ -1,7 +1,7 @@
 {
   "name": "random-string-generator",
   "description": "Javascript random string generator, the length and scope can be custom defined.",
-  "main": "dist/random.js",
+  "main": "dist/random.umd.js",
   "authors": [
     "yuhenabc"
   ],
