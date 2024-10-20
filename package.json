@@ -3,9 +3,10 @@
   "version": "1.0.1",
   "description": "Javascript random string generator, the length and scope can be custom defined.",
   "main": "dist/random.cjs",
+  "module": "dist/random.mjs",
   "exports": {
-    "import": "./dist/random.mjs",
-    "require": "./dist/random.cjs"
+    "require": "./dist/random.cjs",
+    "import": "./dist/random.mjs"
   },
   "scripts": {
     "test": "jest",

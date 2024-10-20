@@ -1,0 +1,12 @@
+{
+  "name": "@yuhenabc/random",
+  "version": "1.0.1",
+  "exports": "./src/random.ts",
+  "publish": {
+    "include": [
+      "LICENSE",
+      "README.md",
+      "src/**/*.ts"
+    ]
+  }
+}
