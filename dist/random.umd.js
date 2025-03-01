@@ -13,16 +13,16 @@
         numeric: numeric,
         lowernumeric: "".concat(lower).concat(numeric),
         uppernumeric: "".concat(upper).concat(numeric),
-        alphanumeric: "".concat(lower).concat(upper).concat(numeric)
+        alphanumeric: "".concat(lower).concat(upper).concat(numeric),
     };
     var typeKeys = Object.keys(types);
     /**
      * Generate random string
      *
-     * @param {number} length The length of the random string
-     * @param {string} type The type of the random string
-     * @returns {string}
-    */
+     * @param {number} [length] The length of the random string, default is 12
+     * @param {string} [type] The type of the random string, default is 'alphanumeric'
+     * @return {string}
+     */
     function random (length, type) {
         switch (arguments.length) {
             case 0:

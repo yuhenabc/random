@@ -20,5 +20,11 @@ export default {
       exports: 'default',
     },
   ],
-  plugins: [typescript()],
+  plugins: [
+    typescript({
+      declaration: true,
+      declarationDir: 'dist',
+      rootDir: 'src',
+    }),
+  ],
 };

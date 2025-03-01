@@ -4,7 +4,9 @@
 .babelrc
 .gitignore
 bower.json
-rollup.config.js
+jsr.json
+tsconfig.json
+rollup.config.mjs
 package-lock.json
 yarn.lock
 src
