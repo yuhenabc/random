@@ -6,6 +6,6 @@ declare module 'random-string-generator' {
    * @param {string} [type] The type of the random string, default is 'alphanumeric'
    * @returns {string} The random string
    */
-  function random(length: number, type: string): string
+  function random(length?: number, type?: string): string
   export default random
 }
