@@ -16,9 +16,9 @@ const typeKeys = Object.keys(types)
  *
  * @param {number} [length] The length of the random string, default is 12
  * @param {string} [type] The type of the random string, default is 'alphanumeric'
- * @return {string}
+ * @returns {string} The random string
  */
-export default function (length: number, type: string): string {
+function random(length: number, type: string): string {
   switch (arguments.length) {
     case 0:
       length = 12
@@ -59,3 +59,5 @@ export default function (length: number, type: string): string {
   }
   return str
 }
+
+export default random

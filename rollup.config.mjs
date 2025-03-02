@@ -21,10 +21,6 @@ export default {
     },
   ],
   plugins: [
-    typescript({
-      declaration: true,
-      declarationDir: 'dist',
-      rootDir: 'src',
-    }),
+    typescript(),
   ],
 };

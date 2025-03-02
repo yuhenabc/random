@@ -4,7 +4,7 @@
   "description": "Javascript random string generator, the length and scope can be custom defined.",
   "main": "dist/random.cjs",
   "module": "dist/random.mjs",
-  "types": "dist/random.d.ts",
+  "types": "random.d.ts",
   "exports": {
     "require": "./dist/random.cjs",
     "import": "./dist/random.mjs"
