@@ -5,10 +5,6 @@
   "main": "dist/random.cjs",
   "module": "dist/random.mjs",
   "types": "random.d.ts",
-  "exports": {
-    "require": "./dist/random.cjs",
-    "import": "./dist/random.mjs"
-  },
   "scripts": {
     "test": "jest",
     "build": "rollup -c"
