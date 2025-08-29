@@ -1,25 +1,37 @@
 # random
 
-Javascript random string generator, the length and scope can be custom defined.
+A JavaScript random string generator with customizable length and characters.
 
 ## Install
 
 By bower:
 
-```
+```bash
 bower install random-string-generator
 ```
 
 By npm:
 
-```
+```bash
 npm install random-string-generator
 ```
 
 By yarn:
 
-```
+```bash
 yarn add random-string-generator
+```
+
+By pnpm:
+
+```bash
+pnpm add random-string-generator
+```
+
+By deno:
+
+```bash
+deno add jsr:@yuhenabc/random
 ```
 
 ## Documention
@@ -33,8 +45,9 @@ random([length] [, type]);
 Random string's length, default is `12`.
 
 ```javascript
-random(); // 'qCCm2Yoyycjm' or others
-random(12); // 'qCCm2Yoyycjm' or others
+random() // 'qCCm2Yoyycjm' or others
+random(12) // 'qCCm2Yoyycjm' or others
+random(16, 'numeric') // '2222953283744321' or others
 ```
 
 #### **type**:
@@ -43,58 +56,58 @@ You can generate different variant of strings based on the choices available, de
 
 ##### 1. alphanumeric
 
-To genereate alphanumeric characters. *example*
+To genereate alphanumeric characters. _example_
 
 ```javascript
-random('alphanumeric'); // 'qCCm2Yoyycjm' or others
+random('alphanumeric') // 'qCCm2Yoyycjm' or others
 ```
 
 ##### 2. numeric
 
-To generate numeric characters. *example*
+To generate numeric characters. _example_
 
 ```javascript
-random('numeric'); // '222295328374' or others
+random('numeric') // '222295328374' or others
 ```
 
 ##### 3. upper
 
-To generate upper case alphabetic characters. *example*
+To generate upper case alphabetic characters. _example_
 
 ```javascript
-random('upper'); // 'ELYGLGBVKLUE' or others
+random('upper') // 'ELYGLGBVKLUE' or others
 ```
 
 ##### 4. lower
 
-To generate lower case alphabetic characters. *example*
+To generate lower case alphabetic characters. _example_
 
 ```javascript
-random('lower'); // 'pivohkmuzxrv' or others
+random('lower') // 'pivohkmuzxrv' or others
 ```
 
 ##### 5. uppernummeric
 
-To generate upper case numeric characters. *example*
+To generate upper case numeric characters. _example_
 
 ```javascript
-random('uppernumeric'); // '8DOUIL7RW8MW' or others
+random('uppernumeric') // '8DOUIL7RW8MW' or others
 ```
 
 ##### 6. lowernummeric
 
-To generate upper case numeric characters. *example*
+To generate upper case numeric characters. _example_
 
 ```javascript
-random('lowernumeric'); // 'k0oooqv77wrq' or others
+random('lowernumeric') // 'k0oooqv77wrq' or others
 ```
 
 ##### 7. scoped:.+
 
-To generate upper case numeric characters. *example*
+To generate upper case numeric characters. _example_
 
 ```javascript
-random('scoped:ABCDEF'); // 'ACBBCAFCEDAA' or others
+random('scoped:ABCDEF') // 'ACBBCAFCEDAA' or others
 ```
 
 ## Usage
@@ -109,54 +122,63 @@ other js field you can write:
 
 ```html
 <script>
-  console.log(random());  // 'qCCm2Yoyycjm' or others
+  console.log(random()) // 'qCCm2Yoyycjm' or others
 </script>
 ```
 
 #### Use with require.js:
 
 ```javascript
-define(["./bower_components/random-string-generator/dist/random.js"], function(random) {
-    console.log(random());  // 'qCCm2Yoyycjm' or others
-  }
-);
+define(['./bower_components/random-string-generator/dist/random.js'], function (random) {
+  console.log(random()) // 'qCCm2Yoyycjm' or others
+})
 ```
 
 #### Use with node modules:
 
 ```javascript
-var random = require('random-string-generator');
+import random from 'random-string-generator'
 
-console.log(random());  // 'qCCm2Yoyycjm' or others
+console.log(random()) // 'qCCm2Yoyycjm' or others
 ```
 
 ## Example
 
 ```javascript
-var random = require('random-string-generator');
-var result = random(100000, 'scoped:ABCDE');
-var stat = [0, 0, 0, 0, 0];
-for (var i in result) {
-    var s = result[i];
-    switch (s) {
-        case 'A': stat[0]++; break;
-        case 'B': stat[1]++; break;
-        case 'C': stat[2]++; break;
-        case 'D': stat[3]++; break;
-        case 'E': stat[4]++; break;
-        default: break;
-    }
+import random from 'random-string-generator'
+
+const result = random(100000, 'scoped:ABCDE')
+const stat = [0, 0, 0, 0, 0]
+
+for (const s of result) {
+  switch (s) {
+    case 'A':
+      stat[0]++
+      break
+    case 'B':
+      stat[1]++
+      break
+    case 'C':
+      stat[2]++
+      break
+    case 'D':
+      stat[3]++
+      break
+    case 'E':
+      stat[4]++
+      break
+    default:
+      break
+  }
 }
 
-function output(char, num) {
-    return char + ': ' + stat[num] / 1000 + '%';
-}
+const output = (char, num) => `${char}: ${stat[num] / 1000}%`
 
-console.log(output('A', 0));
-console.log(output('B', 1));
-console.log(output('C', 2));
-console.log(output('D', 3));
-console.log(output('E', 4));
+console.log(output('A', 0))
+console.log(output('B', 1))
+console.log(output('C', 2))
+console.log(output('D', 3))
+console.log(output('E', 4))
 
 /*
  * The results may be:
@@ -168,7 +190,7 @@ console.log(output('E', 4));
  * E: 20.066%
  *
  * or some others.
-*/
+ */
 ```
 
 ## Contributing
